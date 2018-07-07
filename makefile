@@ -1,10 +1,22 @@
-CC     = g++
-CFLAGS = -Wall -Wextra -pedantic-errors -std=c++17
-LFALGS =
-SRCDIR = src
-BINDIR = bin
-OBJS   = $(SRCDIR)/*.cpp
-ONAME  = 'sierpinski triangle'
+CC       = clang++
+CFLAGS   = -Wall -Wextra -pedantic-errors -std=c++17
+LFLAGS   = -lSDL2 -pthread
 
-default: $(OBS)
-	$(CC) $^ $(CFLAGS) $(LFALGS) -o $(BINDIR)/$(ONAME)
+SRCDIR   = ./src
+BINDIR   = ./bin
+OBJDIR   = ./obj
+
+SRCFILES = $(wildcard $(SRCDIR)/*.cpp)
+OBJS     = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCFILES))
+
+ONAME    = 'sierpinski triangle'
+
+default: $(OBJS)
+	$(CC) $(CFLAGS) $(LFLAGS) $^ -o $(BINDIR)/$(ONAME)
+
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	$(CC) $(CFLAGS) -c -o $@ $^
+
+clean:
+	rm $(OBJDIR)/*.o
