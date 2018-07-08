@@ -12,7 +12,7 @@ class Sierpinski
 	Sierpinski(std::vector<Triangle> t);
 
 	auto iterate() -> void;
-	auto get_sub_triangles() -> std::vector<Triangle>;
+	auto get_triangles() -> std::vector<Triangle>;
 
       private:
 	Sierpinski();

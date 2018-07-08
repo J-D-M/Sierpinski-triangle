@@ -41,7 +41,7 @@ Sierpinski::iterate() -> void
 }
 
 auto
-Sierpinski::get_sub_triangles() -> std::vector<Triangle>
+Sierpinski::get_triangles() -> std::vector<Triangle>
 {
 	return sub_triangles;
 }

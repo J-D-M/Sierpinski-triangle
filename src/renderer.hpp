@@ -31,7 +31,7 @@ class Renderer : Error
 	Renderer(const Window &win, int index, Uint32 flags);
 	~Renderer();
 
-	auto set_draw_color(Color c, Uint8 alpha) -> void;
+	auto set_draw_color(Color c, Uint8 alpha = 0xff) -> void;
 	auto clear() -> void;
 	auto present() -> void;
 

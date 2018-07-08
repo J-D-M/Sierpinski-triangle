@@ -1,6 +1,6 @@
 CC       = clang++
 CFLAGS   = -Wall -Wextra -pedantic-errors -std=c++17
-LFLAGS   = -lSDL2 -pthread
+LFLAGS   = -lSDL2
 
 SRCDIR   = ./src
 BINDIR   = ./bin
